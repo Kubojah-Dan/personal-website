@@ -271,7 +271,7 @@ export const CONFERENCES = [
     location: 'Coimbatore, India',
     date: '2025',
     description: 'Participated in a Google-led hands-on bootcamp exploring Google Antigravity and modern Google AI tools, developer frameworks, and prompt engineering challenges with Hack2skill.',
-    image: '/assets/internship.jpg'
+    image: '/assets/hackathon.jpeg'
   }
 ];
 
