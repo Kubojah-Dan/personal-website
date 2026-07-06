@@ -119,16 +119,17 @@ export const PROJECTS = [
     featured: true,
   },
   {
-    id: 'scam-detection',
-    title: 'Scam Detection Application',
-    subtitle: 'ML & NLP Project',
+    id: 'us-accidents-eda',
+    title: 'US Accidents EDA Portfolio',
+    subtitle: 'Machine Learning & Exploratory Data Analysis',
     description:
-      'A real-time platform leveraging Machine Learning and Natural Language Processing to identify harmful content across communication channels. Uses ensemble models and NLP pipelines for high-accuracy scam classification.',
-    tech: ['Python', 'Scikit-learn', 'TensorFlow', 'NLP', 'Flask', 'React'],
-    metrics: ['Real-Time Detection', 'NLP Pipeline', 'ML Ensemble'],
-    image: '/assets/project6.png',
+      'A comprehensive Machine Learning and EDA portfolio built on 7.7 million US accident records. Features a FastAPI backend, Dash frontend, secure authentication, and real-time severity prediction models.',
+    tech: ['Python', 'FastAPI', 'Dash', 'scikit-learn', 'XGBoost', 'Pandas'],
+    metrics: ['7.7M Records', 'Severity Prediction', 'Interactive Dashboard'],
+    image: '/assets/us-accidents.png',
     featured: true,
   },
+
 ];
 
 export const FUTURE_PROJECTS = [
