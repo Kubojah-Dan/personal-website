@@ -23,6 +23,7 @@ export default async function handler(req, res) {
   }
 
   try {
+    const toEmail = process.env.TO_EMAIL || 'kubojadaniel.m2024aiml@sece.ac.in';
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -30,9 +31,9 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        // Resend's free tier allows sending to your own email address from onboarding@resend.dev without domain setup.
-        from: 'Kuboja Portfolio <onboarding@resend.dev>',
-        to: 'kubojadaniel.m2024aiml@sece.ac.in',
+        // Onboarding free tier domain requires exact sender address
+        from: 'onboarding@resend.dev',
+        to: toEmail,
         subject: `📬 Portfolio Contact Form: ${name}`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background-color: #ffffff; color: #1a202c;">
