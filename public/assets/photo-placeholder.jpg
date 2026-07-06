@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#1C1B19"/>
+  <rect x="1" y="1" width="398" height="498" rx="12" fill="none" stroke="#2E2C2A" stroke-width="1"/>
+  <circle cx="200" cy="200" r="60" fill="#222120" stroke="#E8A849" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <path d="M185 190 L200 175 L215 190 L207 190 L207 215 L193 215 L193 190 Z" fill="#E8A849" opacity="0.6"/>
+  <text x="200" y="300" text-anchor="middle" fill="#7A7468" font-family="monospace" font-size="11" letter-spacing="2">[INSERT PHOTO]</text>
+  <text x="200" y="320" text-anchor="middle" fill="#4A453D" font-family="monospace" font-size="9">Drop your headshot here</text>
+</svg>
