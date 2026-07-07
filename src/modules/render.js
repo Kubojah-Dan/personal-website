@@ -212,90 +212,28 @@ function renderTechCategories() {
     .join('');
 }
 
-// ── Certifications ──
+// ── Certifications (CyberCrest style) ──
 function renderCertifications() {
-  const track = document.getElementById('cert-slider-track');
-  const container = document.getElementById('cert-slider-track-container');
-  const prevBtn = document.getElementById('cert-prev');
-  const nextBtn = document.getElementById('cert-next');
+  const grid = document.getElementById('accreditations-grid');
+  if (!grid) return;
 
-  if (!track || !container) return;
-
-  // Duplicate certifications array to enable infinite looping
-  const infiniteCerts = [...CERTIFICATIONS, ...CERTIFICATIONS];
-
-  track.innerHTML = infiniteCerts.map((c, idx) => `
-    <div class="cert-card-item" data-idx="${idx % CERTIFICATIONS.length}" data-cursor-hover>
-      <img src="${c.link}" alt="${c.name}" loading="lazy" />
-      <div class="cert-card-content">
-        <p class="cert-card-issuer">${c.issuer}</p>
-        <h4 class="cert-card-title">${c.name}</h4>
-        <div class="cert-card-footer">
-          <span class="cert-card-date">${c.date}</span>
-          <span class="cert-card-zoom-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <polyline points="9 21 3 21 3 15"></polyline>
-              <line x1="21" y1="3" x2="14" y2="10"></line>
-              <line x1="3" y1="21" x2="10" y2="14"></line>
-            </svg>
-          </span>
-        </div>
+  grid.innerHTML = CERTIFICATIONS.map((c, idx) => `
+    <div class="accreditation-cell" data-idx="${idx}" data-cursor-hover>
+      <div class="accreditation-img-container">
+        <img src="${c.link}" alt="${c.name}" class="accreditation-img" loading="lazy" />
+      </div>
+      <div class="accreditation-info">
+        <span class="accreditation-issuer">${c.issuer}</span>
+        <h4 class="accreditation-title">${c.name}</h4>
+        <span class="accreditation-date">${c.date}</span>
       </div>
     </div>
   `).join('');
 
-  // ── Auto Scroll Marquee Loop ──
-  let isPaused = false;
-  let scrollSpeed = 0.8;
-
-  function step() {
-    if (!isPaused) {
-      container.scrollLeft += scrollSpeed;
-      
-      // If we scroll past the first half, wrap back to 0 seamlessly
-      const halfWidth = track.scrollWidth / 2;
-      if (container.scrollLeft >= halfWidth) {
-        container.scrollLeft = 0;
-      }
-    }
-    requestAnimationFrame(step);
-  }
-
-  // Start scrolling after a short delay
-  setTimeout(() => {
-    requestAnimationFrame(step);
-  }, 1000);
-
-  // ── Hover to Pause ──
-  container.addEventListener('mouseenter', () => { isPaused = true; });
-  container.addEventListener('mouseleave', () => { isPaused = false; });
-
-  // ── Left/Right Buttons ──
-  const cardWidth = 320 + 32; // card width + margins
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      container.scrollTo({
-        left: container.scrollLeft - cardWidth,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      container.scrollTo({
-        left: container.scrollLeft + cardWidth,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // ── Click to Zoom Modal ──
-  track.querySelectorAll('.cert-card-item').forEach(card => {
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.getAttribute('data-idx'));
+  // Click to Zoom Modal
+  grid.querySelectorAll('.accreditation-cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const idx = parseInt(cell.getAttribute('data-idx'));
       const cert = CERTIFICATIONS[idx];
       openCertModal(cert);
     });
