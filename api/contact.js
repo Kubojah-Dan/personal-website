@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const toEmail = process.env.TO_EMAIL || 'kubojadaniel.m2024aiml@sece.ac.in';
+    const toEmail = process.env.TO_EMAIL || 'kubojadan014@gmail.com';
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
