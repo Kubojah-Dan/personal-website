@@ -12,7 +12,7 @@ export const PERSONAL = {
   mission:
     'Democratizing Technology for Social Impact — using AI to solve real-world problems in rural education, accessibility, and predictive analytics.',
   phone: '+91 8452932842',
-  email: 'kubojadaniel.m2024aiml@sece.ac.in',
+  email: 'kubojadan014@gmail.com',
   location: 'Coimbatore, Tamil Nadu, India',
   photo: '/assets/profile.jpeg',
   socials: {
