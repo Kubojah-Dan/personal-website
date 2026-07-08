@@ -998,7 +998,7 @@
   transform: translateY(-2px);
 }
 
-/* Accreditations Grid (CyberCrest style) */
+/* Accreditations Grid — Full Width */
 .accreditations-section {
   width: 100%;
 }
@@ -1007,15 +1007,13 @@
   overflow: hidden;
   border: 1px solid var(--surface-glass-border);
   border-radius: var(--radius-lg);
-  background: rgba(14, 14, 12, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .accreditations-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Creates thin internal borders without double lines */
-  margin: -1px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: -1px; /* collapse internal borders to single lines */
 }
 
 .accreditation-cell {
@@ -1026,39 +1024,36 @@
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  min-height: 280px;
-  cursor: none;
-  transition: all 0.4s var(--ease-out-expo);
+  min-height: 260px;
+  cursor: pointer;
+  transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
   background: transparent;
 }
 
 .accreditation-cell:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.05);
   z-index: 2;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
 .accreditation-img-container {
   width: 100%;
-  height: 110px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-xl);
-  filter: grayscale(100%) opacity(0.5);
-  transition: all 0.4s var(--ease-out-expo);
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
 .accreditation-cell:hover .accreditation-img-container {
-  filter: grayscale(0) opacity(1);
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .accreditation-img {
-  max-width: 160px;
-  max-height: 110px;
+  max-width: 150px;
+  max-height: 100px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
 }
 
 .accreditation-info {
@@ -1069,7 +1064,7 @@
 
 .accreditation-issuer {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent-primary);
@@ -1077,7 +1072,7 @@
 
 .accreditation-title {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.4;
@@ -1086,7 +1081,7 @@
 
 .accreditation-date {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   color: var(--text-muted);
 }
 
@@ -1574,8 +1569,8 @@
   .gallery-item:nth-child(1) { grid-row: auto; aspect-ratio: 4 / 3; }
   .gallery-item:nth-child(4) { grid-column: auto; }
   .conferences-grid { grid-template-columns: 1fr; }
-  .accreditations-section { grid-template-columns: 1fr !important; }
-  .accreditations-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Certifications: 3 columns on tablet */
+  .accreditations-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1591,6 +1586,8 @@
   .hackathon-card { flex: 0 0 280px; }
   .gallery-grid { grid-template-columns: 1fr; }
   .tech-orbit-container { display: none; }
+  /* Certifications: 2 columns on phone landscape / tablet portrait */
+  .accreditations-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
@@ -1600,9 +1597,9 @@
   }
   .btn { width: 100%; justify-content: center; }
 
-  /* Certifications Mobile */
+  /* Certifications: single column on small phones */
   .accreditations-grid { grid-template-columns: 1fr; }
-  .accreditation-cell { min-height: 220px; padding: var(--space-xl) var(--space-lg); }
+  .accreditation-cell { min-height: 200px; padding: var(--space-2xl) var(--space-lg); }
   .accreditation-img { max-width: 120px; max-height: 80px; }
   .cert-modal-container {
     width: 95%;
